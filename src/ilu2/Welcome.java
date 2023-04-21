@@ -34,9 +34,12 @@ public class Welcome {
 	
 	private static String input_multinom(StringBuilder strbld,String input) {
 		String [] miaou = input.split(",");
-		strbld = input_singlenom(strbld,miaou[0].toString());
+		for(int i = 0;i<miaou.length-1;i++) {
+			
+		strbld = input_singlenom(strbld,miaou[i].toString());
 		strbld.append(", ");
-		strbld = input_singlenom(strbld,miaou[1].toString());	
+		}
+		strbld = input_singlenom(strbld,miaou[miaou.length-1].toString());	
 		return strbld.toString();
 	}
 }
