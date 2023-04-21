@@ -1,14 +1,14 @@
 package ilu2;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.Test;
 
 class WelcomeTest {
 
 	@Test
-	void testWelcome() {
-		fail("Not yet implemented");
+	void testWelcomeEx1() {
+		assertEquals(Welcome.welcome("bob"),"Hello, Bob");
 	}
 
 }
