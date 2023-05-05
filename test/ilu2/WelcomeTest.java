@@ -1,6 +1,6 @@
 package ilu2;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.*; 
 import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.Test;
 
@@ -34,5 +34,10 @@ class WelcomeTest {
 		assertEquals(Welcome.welcome("amy,bob,hippolyte"),"Hello, Amy, Bob, Hippolyte");
 		assertEquals(Welcome.welcome("amy,bob,hippolyte,thomas,benoit"),"Hello, Amy, Bob, Hippolyte, Thomas, Benoit");
 	}
-
+	
+	@Test
+	void testWelcomeEx6() {
+		assertEquals(Welcome.welcome("amy,BOB,hippolyte"),"Hello, Amy, Hippolyte. AND HELLO, BOB !");
+		assertEquals(Welcome.welcome("THOMAS,amy,bob,hippolyte"),"Hello, Amy, Bob, Hippolyte. AND HELLO, THOMAS !");
+	}
 }

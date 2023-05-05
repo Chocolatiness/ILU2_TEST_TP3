@@ -9,7 +9,7 @@ public class Welcome {
 		if (input.contains(",")) {
 			return input_multinom(strbld,input);
 		}
-		if (!input.trim().isEmpty()) {
+		else if (!input.trim().isEmpty()) {
 			strbld = input_singlenom(strbld,input);
 			if (0 == input.compareTo(input.toUpperCase())){
 				return input_maj(strbld);
@@ -34,12 +34,32 @@ public class Welcome {
 	
 	private static String input_multinom(StringBuilder strbld,String input) {
 		String [] miaou = input.split(",");
+		StringBuilder nomMaj = new StringBuilder();
+		int nbM = 0;
 		for(int i = 0;i<miaou.length-1;i++) {
-			
+			if (0 == miaou[i].compareTo(miaou[i].toUpperCase())) {
+				if (nbM == 0) {
+					nomMaj.append("AND HELLO, ");
+					nbM++;
+				nomMaj = input_multinom_maj(nomMaj,miaou[i]);
+			}}
+			else {
 		strbld = input_singlenom(strbld,miaou[i].toString());
 		strbld.append(", ");
-		}
+		}}
 		strbld = input_singlenom(strbld,miaou[miaou.length-1].toString());	
+		if (nbM >0) {	nomMaj.append(" !");
+		strbld.append(". ");
+		strbld.append(nomMaj.toString());
+		}
 		return strbld.toString();
 	}
+
+
+private static StringBuilder input_multinom_maj(StringBuilder strbld,String input) {
+	strbld.append(input);
+	return strbld;
+}
+
+
 }
