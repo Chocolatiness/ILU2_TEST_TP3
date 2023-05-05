@@ -7,6 +7,7 @@ public class Welcome {
 		StringBuilder strbld = new StringBuilder();
 		strbld.append("Hello, ");
 		if (input.contains(",")) {
+			input = trimer(input);
 			return input_multinom(strbld,input);
 		}
 		else if (!input.trim().isEmpty()) {
@@ -33,6 +34,7 @@ public class Welcome {
 	}
 	
 	private static String input_multinom(StringBuilder strbld,String input) {
+		System.out.println(input);
 		String [] miaou = input.split(",");
 		StringBuilder nomMaj = new StringBuilder();
 		int nbM = 0;
@@ -63,6 +65,47 @@ private static StringBuilder input_multinom_maj(StringBuilder strbld,String inpu
 	strbld.append(input);
 	return strbld;
 }
+
+private static String trimer(String input) {
+	StringBuilder trimer = new StringBuilder();
+	String[] miaou = input.split(",");
+	int j = 0;
+	for (int i = 0; i<miaou.length-1;i++) {
+		trimer.append(miaou[i].trim());
+		trimer.append(",");
+		j++;
+		}
+	trimer.append(miaou[j].trim());
+	return trimer.toString();
+}
+
+
+
+/*private static String ajout_and(String message) {
+	System.out.println(message);
+	String [] miaou = message.split(".");
+	for (int i = 0; i<miaou.length;i++) {
+	System.out.println(miaou[i]);}
+	String [] miaou0 = miaou[0].split("");
+	String [] miaou1 = miaou[1].split("");
+	StringBuilder strbld = new StringBuilder();
+	int nbvir0 = 0;
+	int nbvir1 = 0;
+	for (int i = 0; i<miaou0.length;i++) {
+		if (miaou0[i] == ",")
+			nbvir0 = i;}
+	for (int i = 0; i<miaou1.length;i++) {
+		if (miaou1[i] == ",")
+			nbvir1 = i;
+	}
+	miaou0[nbvir0] = "and";
+	miaou1[nbvir1] = "AND";
+	for (int i = 0;i<miaou0.length;i++) 
+		strbld.append(miaou0[i]);
+	for (int i = 0;i<miaou1.length;i++)
+		strbld.append(miaou1[i]);
+	return strbld.toString();
+}*/
 
 
 }
