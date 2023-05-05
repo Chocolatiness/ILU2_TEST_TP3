@@ -40,9 +40,12 @@ public class Welcome {
 			if (0 == miaou[i].compareTo(miaou[i].toUpperCase())) {
 				if (nbM == 0) {
 					nomMaj.append("AND HELLO, ");
-					nbM++;
+					nbM++;}
+				else {
+					nomMaj.append(", ");
+				}
 				nomMaj = input_multinom_maj(nomMaj,miaou[i]);
-			}}
+			}
 			else {
 		strbld = input_singlenom(strbld,miaou[i].toString());
 		strbld.append(", ");

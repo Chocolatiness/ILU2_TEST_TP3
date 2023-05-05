@@ -38,6 +38,11 @@ class WelcomeTest {
 	@Test
 	void testWelcomeEx6() {
 		assertEquals(Welcome.welcome("amy,BOB,hippolyte"),"Hello, Amy, Hippolyte. AND HELLO, BOB !");
-		assertEquals(Welcome.welcome("THOMAS,amy,bob,hippolyte"),"Hello, Amy, Bob, Hippolyte. AND HELLO, THOMAS !");
+		assertEquals(Welcome.welcome("THOMAS,amy,BOB,hippolyte"),"Hello, Amy, Hippolyte. AND HELLO, THOMAS, BOB !");
+	}
+	
+	void testWelcomeEx7() {
+		assertEquals(Welcome.welcome("amy,BOB,hippolyte"),"Hello, Amy and Hippolyte. AND HELLO, BOB !");
+		assertEquals(Welcome.welcome("THOMAS,amy,ced,BOB,hippolyte"),"Hello, Amy, Ced and Hippolyte. AND HELLO, THOMAS AND BOB !");
 	}
 }
